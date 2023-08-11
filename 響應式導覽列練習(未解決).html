@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>響應式導覽列練習</title>
+    <style>
+        * {box-sizing: border-box;}
+        body {font-family:"Noto Sans CJK TC", "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif; margin: 0;font-size: 100%;}/*margin:0讓導覽列貼邊線*/
+        nav{overflow: hidden;background-color: #a4bcae;}
+        nav a {float: left;display: block;
+            color:black;padding: 14px 16px;text-decoration: none;
+            text-align: center;font-size: 17px;}
+        nav a:hover {background-color:dimgrey;color: #a4bcae;}
+        nav a.active{background-color:dimgray;color: white;}
+        nav .icon {display:none;}
+        @media screen and (max-width:600px){
+            nav a:not(:first-child){display: none;}
+            nav a.icon {float: right;display: block;}
+        }
+        @media screen and (max-width:600px){
+            nav.responsive {position:relative;}
+            nav.responsive .icon {position:absolute;right: 0;top: 0;}
+            nav.responsive a {float: none;display: block;text-align: left;}
+        } 
+    </style>
+</head>
+<body>
+    <nav id="myTopnav">
+        <a href="#" class="active"><img src="house-solid.svg" width="12px">Home</a> 
+        <a href="#" ><img src="star-solid.svg" width="12px">About</a>
+        <a href="#" ><img src="bag-shopping-solid.svg" width="12px">Product</a>
+        <a href="#" ><img src="location-dot-solid.svg" width="12px">Contact</a>
+        <!--void(0)代表一個死連結--><a href="javascript:void(0);" class="icon" onclick="navFunction()"><img src="bars-solid.svg" width="12px"></a> 
+    </nav>
+    <script>
+        function navFunction(){
+            var topNav = document.getElementById('myTopnav'); 
+            if (topNav.className ==='nav'){topNav.className +=' responsive';}//增加reponsive，一定要空格*****
+            else{topNav.className ='nav';}
+        };
+    </script>
+</body>
+
+</html>
